@@ -11,6 +11,7 @@ function App() {
   const rootStyles = getComputedStyle(document.documentElement);
 
   const colorPrimario = rootStyles.getPropertyValue('--color-primario');
+  const colorLight = rootStyles.getPropertyValue('--color-light');
   const colorFondo = rootStyles.getPropertyValue('--color-fondo');
   const colorSecundario = rootStyles.getPropertyValue('--color-secundario');
   const color4 = rootStyles.getPropertyValue('--color4');
@@ -54,7 +55,7 @@ function App() {
           style: {
             background: colorPrimario,
             borderColor: colorPrimario,
-            color: '#fff',
+            color: colorLight,
           },
         }}
       >
@@ -69,7 +70,7 @@ function App() {
         size="large"
         style={{
           backgroundColor: colorPrimario,
-          color: '#fff'
+          color: colorLight
         }}
       />
     </div>

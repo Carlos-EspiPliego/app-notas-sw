@@ -3,6 +3,8 @@
     --color-primario: #71dbd2;
     --color-fondo: #eeffdb;
     --color-secundario: #ade4b5;
+    --color-rojo: #963121;
+    --color-light: #fff;
     --color4: #d0eaa3;
     --color5: #fff18c;
 }
@@ -10,6 +12,7 @@
 /* TIPOGRAFÍA */
 body {
     font-family: 'Open Sans', sans-serif;
+    background-color: var(--color-fondo);
 }
 
 h1 {
@@ -24,4 +27,9 @@ h2 {
 
 p {
     font-size: 16px;
+}
+
+.error-text {
+    color: var(--color-rojo);
+    font-size: 12px;
 }

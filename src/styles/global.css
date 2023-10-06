@@ -28,3 +28,8 @@ h2 {
 p {
     font-size: 16px;
 }
+
+.error-text {
+    color: var(--color-rojo);
+    font-size: 12px;
+}

@@ -20,6 +20,8 @@ function App() {
   const [modalAddNote, setModalAddNote] = useState(false);
   const [noteText, setNoteText] = useState("");
   const [notesList, setNotesList] = useState([]);
+  const [validations, setValidations] = useState({})
+
   // context para alertas ant design
   const [success, contextHolder] = message.useMessage();
 
@@ -37,6 +39,7 @@ function App() {
    */
   const handleShowModal = () => {
     setNoteText("");
+    setValidations({})
     setModalAddNote(!modalAddNote)
   }
 
@@ -50,8 +53,9 @@ function App() {
       setNotesList([...notesList, {id: id ,note: noteText, noteDone: false}])
       setModalAddNote(false)
       successAlert()
+      setValidations({})
     }else {
-
+      setValidations({...validations, "inpNote": "El texto de la nota no puede estar vacio."})
     }
   }
 
@@ -103,6 +107,9 @@ function App() {
         }}
       >
         <TextArea value={noteText} onChange={handleChangeInput} rows={3} placeholder='Escribe una nota...' />
+        {"inpNote" in validations && (
+          <p className='error-text'>{validations.inpNote}</p>
+        )}
       </Modal>
 
       {/* Botón flotante mostrar modal */}

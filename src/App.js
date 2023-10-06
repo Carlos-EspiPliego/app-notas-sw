@@ -50,7 +50,7 @@ function App() {
     // Validamos que el texto no este vació o tenga saltos de linea
     if(noteText.trim() !== "") {
       const id = new Date().getTime().toString();
-      setNotesList([...notesList, {id: id ,note: noteText, noteDone: true}])
+      setNotesList([...notesList, {id: id ,note: noteText, noteDone: false}])
       setModalAddNote(false)
       successAlert()
       setValidations({})

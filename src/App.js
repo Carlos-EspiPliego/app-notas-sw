@@ -1,9 +1,9 @@
 import './App.css';
 import './styles/global.css'
-import { useState } from 'react';
-import { Modal, FloatButton, Input } from 'antd';
+import { useEffect, useState } from 'react';
+import { Modal, FloatButton, Input, message  } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-
+import NotesList from './components/NotesList';
 
 const { TextArea } = Input;
 
@@ -19,6 +19,9 @@ function App() {
 
   const [modalAddNote, setModalAddNote] = useState(false);
   const [noteText, setNoteText] = useState("");
+  const [notesList, setNotesList] = useState([]);
+  // context para alertas ant design
+  const [success, contextHolder] = message.useMessage();
 
   /**
    * Función para manejar el cambio de texto del input y actualizar estado
@@ -37,17 +40,57 @@ function App() {
     setModalAddNote(!modalAddNote)
   }
 
+  /**
+   * Función para validar y guardar nota
+   */
+  const saveNote = () => {
+    // Validamos que el texto no este vació o tenga saltos de linea
+    if(noteText.trim() !== "") {
+      const id = new Date().getTime().toString();
+      setNotesList([...notesList, {id: id ,note: noteText, noteDone: false}])
+      setModalAddNote(false)
+      successAlert()
+    }else {
+
+    }
+  }
+
+  const successAlert = () => {
+    success.open({
+      type: 'success',
+      content: 'Nota guardada correctamente',
+      duration: 6
+    });
+  };
+
+
+  
+
+  useEffect(() => {
+    let notesStorage = localStorage.getItem('notes');
+    if(notesStorage) {
+      setNotesList(JSON.parse(notesStorage));
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notesList));
+  }, [notesList])
+ 
   return (
     <div className="App">
       <h1>Aplicación para crear notas</h1>
       {/* Buscador */}
+
+      {/* Lista de notas */}
+      <NotesList notes={notesList}/>
 
       {/* Modal agregar nota */}
       <Modal
         title="Agregar nota"
         centered
         open={modalAddNote}
-        onOk={() => setModalAddNote(false)}
+        onOk={() => saveNote()}
         okText="Guardar"
         onCancel={() => setModalAddNote(false)}
         cancelText="Cancelar"
@@ -73,6 +116,9 @@ function App() {
           color: colorLight
         }}
       />
+
+      {/* Renderizamos context alert */}
+      {contextHolder}
     </div>
   );
 }

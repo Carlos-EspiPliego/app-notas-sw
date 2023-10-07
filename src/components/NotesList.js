@@ -1,9 +1,8 @@
-import React from 'react'
-import NoteCard from './NoteCard'
+import React from 'react';
+import NoteCard from './NoteCard';
 import '../styles/notes.css';
 
-export default function NotesList({notes, completarNota}) {
-
+export default function NotesList({ notes, completarNota, eliminarNota }) {
     // Ordenamos array de notas de manera descendente por id
     const sortedNotes = notes.sort((a, b) => {
         const idA = parseInt(a.id);
@@ -14,8 +13,12 @@ export default function NotesList({notes, completarNota}) {
     return (
         <div className='container-notes-list'>
             {sortedNotes.map((nt) => (
-                <NoteCard note={nt} completarNota={completarNota}/>
+                <NoteCard
+                    note={nt}
+                    completarNota={completarNota}
+                    eliminarNota={eliminarNota}
+                />
             ))}
         </div>
-    )
+    );
 }

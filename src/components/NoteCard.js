@@ -2,7 +2,11 @@ import React from 'react'
 import { Button } from 'antd'
 import { DeleteFilled, CheckCircleFilled } from '@ant-design/icons';
 
-export default function NoteCard({note}) {
+export default function NoteCard({note, completarNota}) {
+    const handleCompletarNota = () => {
+        // Llama a la función completarTarea para cambiar el sstado
+        completarNota(note.id);
+    };
     return (
         <div className={note.noteDone ? "note-done-card" : "note-card"}>
             <div className='note-detail'>
@@ -15,7 +19,7 @@ export default function NoteCard({note}) {
                             shape="circle" 
                             icon={<CheckCircleFilled />} 
                             className="icon-done" 
-                            onClick={() => console.log("PRESS DONE")}
+                            onClick={handleCompletarNota}
                         />
                         <Button 
                             shape="circle" 
@@ -26,8 +30,9 @@ export default function NoteCard({note}) {
                     </div>
                 )}
                 {note.noteDone && (
-                    <div>
+                    <div style={{display:'flex'}}>
                         <CheckCircleFilled className='icon-note-done' />
+                        <h4 className='note-title'>Completada</h4>
                     </div>
                 )}
                     

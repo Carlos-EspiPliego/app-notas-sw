@@ -59,6 +59,17 @@ function App() {
     }
   }
 
+  const completarNota = (noteId) => {
+    const newNotes = notesList.map((note) => {
+        if (note.id === noteId) {
+            return { ...note, noteDone: true };
+        }
+        return note;
+    });
+    completedAlert();
+    setNotesList(newNotes);
+  };
+
   const successAlert = () => {
     success.open({
       type: 'success',
@@ -67,7 +78,13 @@ function App() {
     });
   };
 
-
+  const completedAlert = () => {
+    success.open({
+      type: 'success',
+      content: 'Nota finalizada',
+      duration: 2
+    });
+  };
   
 
   useEffect(() => {
@@ -87,7 +104,7 @@ function App() {
       {/* Buscador */}
 
       {/* Lista de notas */}
-      <NotesList notes={notesList}/>
+      <NotesList notes={notesList} completarNota={completarNota}/>
 
       {/* Modal agregar nota */}
       <Modal

@@ -69,5 +69,22 @@
 
 .icon-note-done {
     color: var(--color-light) !important;
-    font-size: 34px;
+    font-size: 20px;
+}
+
+.text-done {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-light);
+}
+
+.container-done {
+    display: flex;
+    flex-direction: row;
+    margin-top: -14px;
+}
+
+.container-delete {
+    
 }

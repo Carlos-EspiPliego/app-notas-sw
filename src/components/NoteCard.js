@@ -35,9 +35,19 @@ export default function NoteCard({ note, completarNota, eliminarNota }) {
                     </div>
                 )}
                 {note.noteDone && (
-                    <div style={{ display: 'flex' }}>
-                        <CheckCircleFilled className='icon-note-done' />
-                        <h4 className='note-title'>Completada</h4>
+                    <div>
+                        <div className='container-delete'>
+                            <Button
+                                shape='circle'
+                                icon={<DeleteFilled />}
+                                className='icon-delete'
+                                onClick={handleEliminarNota}
+                            />
+                        </div>
+                        <div className='container-done'>
+                            <CheckCircleFilled className='icon-note-done' />
+                            <h4 className='text-done'>Completada</h4>
+                        </div>
                     </div>
                 )}
             </div>

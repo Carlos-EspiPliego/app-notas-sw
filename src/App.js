@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Modal, FloatButton, Input, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import NotesList from './components/NotesList';
+import Contador from './components/Contador';
 
 const { TextArea } = Input;
 
@@ -21,6 +22,8 @@ function App() {
     const [noteText, setNoteText] = useState('');
     const [notesList, setNotesList] = useState([]);
     const [validations, setValidations] = useState({});
+
+    const [contadorNotasCompletadas, setContadorNotasCompletadas] = useState(0);
 
     // context para alertas ant design
     const [success, contextHolder] = message.useMessage();
@@ -68,6 +71,7 @@ function App() {
     const completarNota = (noteId) => {
         const newNotes = notesList.map((note) => {
             if (note.id === noteId) {
+                setContadorNotasCompletadas(contadorNotasCompletadas + 1);
                 return { ...note, noteDone: true };
             }
             return note;
@@ -104,12 +108,18 @@ function App() {
     }, [notesList]);
     const eliminarNota = (noteId) => {
         const newNotes = notesList.filter((note) => note.id !== noteId);
+        setContadorNotasCompletadas(contadorNotasCompletadas - 1);
         setNotesList(newNotes);
     };
     return (
         <div className='App'>
             <h1>Aplicación para crear notas</h1>
+            {/*CONTADOR */}
+            <Contador
+                contadorNotasCompletadas={contadorNotasCompletadas}
+            />
             {/* Buscador */}
+
 
             {/* Lista de notas */}
             <NotesList

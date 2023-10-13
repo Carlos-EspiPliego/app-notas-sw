@@ -107,8 +107,11 @@ function App() {
         localStorage.setItem('notes', JSON.stringify(notesList));
     }, [notesList]);
     const eliminarNota = (noteId) => {
+        const noteToDelete = notesList.find((note) => note.id === noteId);
+        if (noteToDelete && noteToDelete.noteDone) {
+            setContadorNotasCompletadas(contadorNotasCompletadas - 1);
+        }
         const newNotes = notesList.filter((note) => note.id !== noteId);
-        setContadorNotasCompletadas(contadorNotasCompletadas - 1);
         setNotesList(newNotes);
     };
     return (

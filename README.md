@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Appnotas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripcion 
 
-## Available Scripts
+Este proyecto es una *aplicación web* que permite a los usuarios gestionar sus tareas pendientes de manera eficiente. Con esta aplicacion los usuarios pueden crear, eliminar y completar sus notas. Asi como tambien se muestran listadas tanto completadas como pendientes. Además de que se muestra un contador de notas completadas en la interfaz.
 
-In the project directory, you can run:
+## Tabla de contenidos
 
-### `npm start`
+- [Instalación](#Instalación)
+- [Uso](#Uso)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Instalación
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Para poder instalar la aplicación web se deben seguir los siguientes pasos:**
 
-### `npm test`
+1. Clonar el repositorio en algún directorio de tu PC, ya sea usando [HTTPS](https://gitlab.com/2022378002/appnotas.git) o [SSH](git@gitlab.com:2022378002/appnotas.git).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Una vez clonado, abre una terminal del proyecto y ejecuta el comando `npm install` para descargar todas las dependencias del proyecto.
 
-### `npm run build`
+3. Para correr la aplicación ejecuta el comando `npm start` y en seguida abrira la siguiente url en tu navegador (https://localhost:3000).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. En caso de que en la consola marque algún error de librerias, en la consola aparece cuál necesitas instalar para ejecutar la aplicación.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Para detener el servidor de localhost que corre la aplicación en la consola debera usar `ctrl + C`, para después volver a seleccionar la `tecla Y`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Uso
 
-### `npm run eject`
+**Para poder usar la aplicación web, deberas seguir los siguientes pasos:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Una vez este corriendo la aplicación se abrirá la en tu navegador, en caso de que no suceda ingresa al siguiente link (https://localhost:3000)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Para crear una nota dar clic en el botón de **+** ubicado en la parte inferior derecha. Se abrirá una ventana y deberá escribir lo que desea poner en la nota y después seleccionar **Guardar**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Para eliminar la nota solo se debe seleccionar el **botón rojo con el icono de trash** de la nota.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Para completar una nota seleccione el **botón verde con el icono de check** y la nota cambiará de color y aparecerá como completada. Además de que aparece un contador de cuántas notas completadas se han hecho.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5. Para buscar una nota en específico se muestra una **barra de busqueda** en la parte superior, en ella deberá escribir el contenido de la nota y automaticamente aparece en la lista.

@@ -7,6 +7,7 @@ import NotesList from '../components/NotesList';
 import Contador from '../components/Contador';
 import BuscadorNotas from '../components/BuscadorNotas';
 import { useNavigate } from 'react-router-dom';
+import NavBar from '../components/NavBar'
 
 const { TextArea } = Input;
 
@@ -135,6 +136,8 @@ function Home() {
         completarNota={completarNota}
         eliminarNota={eliminarNota}
       />
+      
+      <NavBar/>
 
       {/* Modal agregar nota */}
       <Modal

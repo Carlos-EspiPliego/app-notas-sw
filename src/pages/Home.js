@@ -1,11 +1,11 @@
-import './App.css';
-import './styles/global.css';
+import '../App.css';
+import '../styles/global.css';
 import { useEffect, useState } from 'react';
 import { Modal, FloatButton, Input, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import NotesList from './components/NotesList';
-import Contador from './components/Contador';
-import BuscadorNotas from './components/BuscadorNotas';
+import NotesList from '../components/NotesList';
+import Contador from '../components/Contador';
+import BuscadorNotas from '../components/BuscadorNotas';
 import { useNavigate } from 'react-router-dom';
 
 const { TextArea } = Input;
